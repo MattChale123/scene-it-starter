@@ -13,4 +13,23 @@ body {
 .results {
 	margin-top: 20px;
 }
-
+.sidebar {
+	display: flex;
+	justify-content: baseline;
+	word-wrap:break-word;
+	padding: 0px;
+	background-color: #EE6B9A;
+	width: 25%;
+	height: 16vh;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	float: right;
+	padding-right: 5px;
+	padding-left: 5px;
+	padding-bottom: 0%;
+	margin-right: 10px;
+	text-align: left;
+	font-family: 'Courier New', Courier, monospace;
+	color: black;
+}

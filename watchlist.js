@@ -5,14 +5,27 @@ if (watchlist === null) {
     watchlist = []
 }
 document.querySelector('.movies-container').innerHTML = renderMovies(watchlist);
-const movieFilter = document.getElementById("col-12 results")
 
-function renderMovies(movieArray) {
-    const movieHtmlArray = movieArray.map(function (currentMovie) {
-        return `<div>
+
+function renderMovies(movieArray){
+    const movieHtmlArray = movieArray.map(function(currentMovie) {
+         return `<div>
             <h2>${currentMovie.Title}</h2>
-            <div>`
-    });
+            <img src="${currentMovie.Poster} class="card-img-top" alt="movieposter">
+            <br>
+            <a href='#' onclick="removeMovie('${currentMovie.imdbID}')" class="btn btn-primary">Remove</a>
+         <div>`
+     });
+    
+     return movieHtmlArray.join('');
+ }
 
-    return movieHtmlArray.join('');
+
+function removeMovie(imdbID) {
+    console.log(watchlist, imdbID)
+    let results = watchlist.filter(movie => movie.imdbID !== imdbID)
+    watchlist = results
+    document.querySelector('.movies-container').innerHTML = renderMovies(results);
+    watchlistJSON = JSON.stringify(results);
+    localStorage.setItem('watchlist', watchlistJSON);
 }
